@@ -1,5 +1,10 @@
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+import java.time.LocalDate;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CardOrderTest {
@@ -7,6 +12,13 @@ public class CardOrderTest {
     void shouldRegister() {
         open("http://localhost:9999");
         $("[placeholder='Город']").setValue("Челябинск");
+       // LocalDate actualDate = LocalDate.now().plusDays(3);
+        // $(".calendar").setValue(String.valueOf(actualDate)).shouldBe(visible);
+        $("[name = 'name']").setValue("Иванов Илья");
+        $("[name = 'phone']").setValue("+79048042065");
+        $("[data-test-id='agreement']").click();
+        $$("button").find(exactText("Забронировать")).click();
+        $("[data-test-id = 'notification']").shouldBe(visible, Duration.ofSeconds(15));
 
     }
 
