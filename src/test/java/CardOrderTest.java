@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -12,8 +13,9 @@ public class CardOrderTest {
     void shouldRegister() {
         open("http://localhost:9999");
         $("[placeholder='Город']").setValue("Челябинск");
-       // LocalDate actualDate = LocalDate.now().plusDays(3);
-        // $(".calendar").setValue(String.valueOf(actualDate)).shouldBe(visible);
+        //LocalDate actualDate = LocalDate.now().plusDays(3);
+        //$("[data-test-id='date']").setValue(String.valueOf(actualDate));
+        //$$("[data-test-id = 'date']").find(visible).setValue("08.12.2022");
         $("[name = 'name']").setValue("Иванов Илья");
         $("[name = 'phone']").setValue("+79048042065");
         $("[data-test-id='agreement']").click();
