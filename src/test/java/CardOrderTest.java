@@ -13,8 +13,8 @@ public class CardOrderTest {
     void shouldRegister() {
         open("http://localhost:9999");
         $("[placeholder='Город']").setValue("Челябинск");
-        LocalDate actualDate = LocalDate.now().plusDays(3);
-        $("[data-test-id = 'date'] .input__control").setValue(String.valueOf(actualDate));
+        LocalDate date = LocalDate.now().plusDays(3);
+        $("[data-test-id = 'date'] .input__control").setValue(String.valueOf(date));
         $("[name = 'name']").setValue("Иванов Илья");
         $("[name = 'phone']").setValue("+79048042065");
         $("[data-test-id='agreement']").click();
